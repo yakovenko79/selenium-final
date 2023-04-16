@@ -4,7 +4,7 @@ from .locators import ProductPageLocators
 
 class ProductPage(BasePage):
 
-    def go_to_basket_page(self):
+    def add_to_basket_page(self):
         # нажимаем кнопку "add product"
         basket_link = self.browser.find_element(*ProductPageLocators.PRODUCT_LINK)
         basket_link.click()
@@ -19,11 +19,9 @@ class ProductPage(BasePage):
         basket_message = self.browser.find_element(*ProductPageLocators.IN_BASKET_MESSAGE).text
 
         # проверяем, что название товара присутствует в сообщении о добавлении товара
-        assert product_name in basket_message, "Product name is not in message"
-
+        assert product_name == basket_message, "Product name is not in message"
 
     def should_be_message_about_basket_total(self):
-
         # проверяем присутствуют ли элементы на странице
         assert self.is_element_present(*ProductPageLocators.PRODUCT_COST), "Price is not on the page"
         assert self.is_element_present(*ProductPageLocators.IN_BASKET_TOTAL), "Price is not in basket"
@@ -34,6 +32,7 @@ class ProductPage(BasePage):
 
         # сравниваем текст цены товара и текст стоимости товаров в корзине
         assert product_price == basket_total, "Price is not equal"
+
 
 
 
