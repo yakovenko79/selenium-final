@@ -10,7 +10,7 @@ class ProductPage(BasePage):
         basket_link.click()
 
     def is_message_after_adding(self):
-        # проверяем присутствуют ли название товара и сообщение о добавленном товаре на странице
+        # проверяем присутствует ли название товара и сообщение о добавленном товаре на странице
         assert self.is_element_present(*ProductPageLocators.PRODUCT_NAME), "Product name is not on the page"
         assert self.is_element_present(*ProductPageLocators.IN_BASKET_MESSAGE), "Link about adding is not on the page"
 
@@ -20,6 +20,15 @@ class ProductPage(BasePage):
 
         # проверяем, что название товара присутствует в сообщении о добавлении товара
         assert product_name == basket_message, "Product name is not in message"
+
+    def should_not_be_success_message(self):
+        # проверяем не присутствует ли название товара и сообщение о добавленном товаре на странице
+        assert self.is_not_element_present(*ProductPageLocators.IN_BASKET_BANNER), \
+            "Product name is on the page, but shouldn't be"
+
+    def should_be_disappeared(self):
+        # проверяем, исчезает ли элемент
+        assert self.is_disappeared(*ProductPageLocators.IN_BASKET_BANNER), "Element dont dissapear"
 
     def should_be_message_about_basket_total(self):
         # проверяем присутствуют ли элементы на странице
