@@ -18,3 +18,11 @@ class ProductPageLocators():
     IN_BASKET_TOTAL = (By.CSS_SELECTOR, "div#messages p strong")
     PRODUCT_COST = (By.CSS_SELECTOR, "p.price_color")
 
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, "span.btn-group")
+    BASKET_CONDITION = (By.CSS_SELECTOR, "div#content_inner")
+    EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, "div#content_inner > p")
+
