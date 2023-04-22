@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.common.by import By
 
 
@@ -8,6 +9,10 @@ class MainPageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, ".login_form")
     REGISTER_FORM = (By.CSS_SELECTOR, ".register_form")
+    REGISTER_EMAIL = (By.CSS_SELECTOR, "input#id_registration-email")
+    REGISTER_PASS1 = (By.CSS_SELECTOR, "input#id_registration-password1")
+    REGISTER_PASS2 = (By.CSS_SELECTOR, "input#id_registration-password2")
+    REGISTER_BUTTON = (By.NAME, "registration_submit")
 
 
 class ProductPageLocators():
@@ -25,4 +30,4 @@ class BasePageLocators():
     BASKET_LINK = (By.CSS_SELECTOR, "span.btn-group")
     BASKET_CONDITION = (By.CSS_SELECTOR, "div#content_inner")
     EMPTY_BASKET_MESSAGE = (By.CSS_SELECTOR, "div#content_inner > p")
-
+    USER_ICON = (By.CSS_SELECTOR, "i.icon-user")
