@@ -21,11 +21,6 @@ class ProductPage(BasePage):
         # проверяем, что название товара присутствует в сообщении о добавлении товара
         assert product_name == basket_message, "Product name is not in message"
 
-    def should_not_be_success_message(self):
-        # проверяем не присутствует ли название товара и сообщение о добавленном товаре на странице
-        assert self.is_not_element_present(*ProductPageLocators.IN_BASKET_BANNER), \
-            "Product name is on the page, but shouldn't be"
-
     def should_be_disappeared(self):
         # проверяем, исчезает ли элемент
         assert self.is_disappeared(*ProductPageLocators.IN_BASKET_BANNER), "Element dont dissapear"
@@ -42,7 +37,10 @@ class ProductPage(BasePage):
         # сравниваем текст цены товара и текст стоимости товаров в корзине
         assert product_price == basket_total, "Price is not equal"
 
-
+    def should_not_be_success_message(self):
+        # проверяем не присутствует ли название товара и сообщение о добавленном товаре на странице
+        assert self.is_not_element_present(*ProductPageLocators.IN_BASKET_BANNER), \
+            "Product name is on the page, but shouldn't be"
 
 
 

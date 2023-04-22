@@ -1,9 +1,6 @@
 from .base_page import BasePage
 from .locators import BasePageLocators
 from .locators import ProductPageLocators
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasketPage(BasePage):
